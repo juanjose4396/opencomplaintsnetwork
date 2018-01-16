@@ -7,25 +7,28 @@ import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
 import { AgmCoreModule } from '@agm/core';
-import { RegistroComponent } from './registro/registro/registro.component';
+import { RegistroComponent } from './registro/registro.component';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AuthService} from './services/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {path: '' , component: HomeComponent},
     {path: 'home', component: HomeComponent},
-    {path: 'registro', component: RegistroComponent}
+    {path: 'registro', component: RegistroComponent},
+    {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegistroComponent
+    RegistroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
