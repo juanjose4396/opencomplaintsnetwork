@@ -53,11 +53,12 @@
                 </div>
               </div>
               <div class="form-group">
-                <a href="" class="d-block">¿Olvido su contraseña?</a>
-                <a href="#" class="d-block" (click)="loginWithFacebook()">Logeate con Facebook</a>
-
+                <button [disabled]="!registerForm.valid" (click)="login()" class="btn btn-info mt-1">Login</button>
               </div>
-              <button [disabled]="!registerForm.valid" (click)="login()" class="btn btn-info mt-3">Login</button>
+              <div class="form-group">
+                <button class="btn btn-primary mt-3" (click)="loginWithFacebook()">Logeate con Facebook</button>
+                <a href="" class="d-block mt-2">¿Olvido su contraseña?</a>
+              </div>
             </div>
           </form>
         </div>

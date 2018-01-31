@@ -33,14 +33,14 @@ export class RegistroComponent implements OnInit {
     });
   }
 
-  public registro() {
+  registro() {
       this.authService.registro(this.model.email, this.model.pass)
                 .then(response => {
                     console.log(response);
                     this.msjSuccess = 'Usuario registrado con exito';
                     setTimeout(() => {
                         this.msjSuccess = '';
-                        this.router.navigateByUrl('/home')
+                        this.router.navigateByUrl('/home');
                     }, 3000);
                 })
                 .catch(error => {

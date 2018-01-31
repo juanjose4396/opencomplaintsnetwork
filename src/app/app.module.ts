@@ -15,12 +15,15 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AuthService} from './services/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { DenuciarComponent } from './denuciar/denuciar.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
     {path: '' , component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'registro', component: RegistroComponent},
-    {path: 'login', component: LoginComponent}
+    {path: 'login', component: LoginComponent},
+    {path: 'denunciar', component: DenuciarComponent}
 ]
 
 @NgModule({
@@ -28,7 +31,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    DenuciarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ const routes: Routes = [
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    HttpClientModule],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
