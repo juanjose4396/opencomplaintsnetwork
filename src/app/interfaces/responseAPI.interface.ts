@@ -1,3 +1,3 @@
-export class ResponseAPI {
+export class MapsResponseAPI {
     results: any;
 }

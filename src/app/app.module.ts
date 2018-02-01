@@ -17,14 +17,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { DenuciarComponent } from './denuciar/denuciar.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NG_SELECT_DEFAULT_CONFIG, NgSelectModule} from '@ng-select/ng-select';
+import {GoogleMapsApiService} from './services/google-maps-api.service';
 
 const routes: Routes = [
     {path: '' , component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'denunciar', component: DenuciarComponent}
-]
+    {path: 'denunciar', component: DenuciarComponent}];
 
 @NgModule({
   declarations: [
@@ -32,8 +33,7 @@ const routes: Routes = [
     HomeComponent,
     RegistroComponent,
     LoginComponent,
-    DenuciarComponent
-  ],
+    DenuciarComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -45,8 +45,20 @@ const routes: Routes = [
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule],
-  providers: [AuthService],
+    HttpClientModule,
+    NgSelectModule],
+  providers: [AuthService,
+      GoogleMapsApiService,
+      {
+          provide: NG_SELECT_DEFAULT_CONFIG,
+          useValue: {
+              notFoundText: 'No hay resultados para la busqueda',
+              typeToSearchText: 'Escriba para buscar',
+              addTagText: 'Seleccionar',
+              loadingText: 'Cargando...',
+              clearAllText: 'limpiar todo',
+              disableVirtualScroll: false
+          }}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
