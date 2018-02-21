@@ -11,9 +11,15 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
   }
   public login(email, pass) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email,pass);
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass);
   }
   public loginWithFacebook() {
     return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider);
+  }
+  public isLogged() {
+    return this.afAuth.authState;
+  }
+  public logOut() {
+    return this.afAuth.auth.signOut();
   }
 }

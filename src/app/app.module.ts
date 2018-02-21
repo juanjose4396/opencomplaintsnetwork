@@ -19,6 +19,7 @@ import { DenuciarComponent } from './denuciar/denuciar.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NG_SELECT_DEFAULT_CONFIG, NgSelectModule} from '@ng-select/ng-select';
 import {GoogleMapsApiService} from './services/google-maps-api.service';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const routes: Routes = [
     {path: '' , component: HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
     HomeComponent,
     RegistroComponent,
     LoginComponent,
-    DenuciarComponent],
+    DenuciarComponent,
+    ContactoComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
