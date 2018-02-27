@@ -12,6 +12,6 @@ export const environment = {
         projectId: 'opencomplaintsne-1515548677811',
         storageBucket: 'opencomplaintsne-1515548677811.appspot.com',
         messagingSenderId: '460871825461'
-    }
+    },
 };
 

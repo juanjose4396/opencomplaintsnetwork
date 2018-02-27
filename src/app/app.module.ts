@@ -20,13 +20,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {NG_SELECT_DEFAULT_CONFIG, NgSelectModule} from '@ng-select/ng-select';
 import {GoogleMapsApiService} from './services/google-maps-api.service';
 import { ContactoComponent } from './contacto/contacto.component';
+import { DetalleDenunciaComponent } from './detalle-denuncia/detalle-denuncia.component';
 
 const routes: Routes = [
     {path: '' , component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'registro', component: RegistroComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'denunciar', component: DenuciarComponent}];
+    {path: 'denunciar', component: DenuciarComponent},
+    {path: '/detalle/denuncia', component: DetalleDenunciaComponent}];
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ const routes: Routes = [
     RegistroComponent,
     LoginComponent,
     DenuciarComponent,
-    ContactoComponent],
+    ContactoComponent,
+    DetalleDenunciaComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),

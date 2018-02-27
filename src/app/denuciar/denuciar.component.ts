@@ -4,8 +4,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
-import {Observable} from 'rxjs/Observable';
 import {GoogleMapsApiService} from '../services/google-maps-api.service';
+import { MouseEvent } from '@agm/core';
 
 
 
@@ -17,6 +17,8 @@ import {GoogleMapsApiService} from '../services/google-maps-api.service';
 export class DenuciarComponent implements OnInit {
   lat = 1.678418;
   lng = 25.809007;
+  latMarker: number;
+  lngMarker: number;
   directionSelect: any;
   items = [];
   typeahead = new EventEmitter<string>();
@@ -35,5 +37,16 @@ export class DenuciarComponent implements OnInit {
               console.log(err);
               this.items = [];
           });
+  }
+  mapClicked($event: MouseEvent) {
+      this.latMarker = $event.coords.lat;
+      this.lngMarker = $event.coords.lng;
+      console.log(`lat: ${this.latMarker} lng: ${this.lngMarker}`);
+  }
+  buscarDireccion() {
+      this.lat = this.directionSelect.geometry.location.lat;
+      this.lng = this.directionSelect.geometry.location.lng;
+      this.latMarker = this.directionSelect.geometry.location.lat;
+      this.lngMarker = this.directionSelect.geometry.location.lng;
   }
 }
